@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../shop-backstage-consume/shop-backstage-consume.iml" filepath="$PROJECT_DIR$/../shop-backstage-consume/shop-backstage-consume.iml" />
+      <module fileurl="file://$PROJECT_DIR$/shop-backstage-provider.iml" filepath="$PROJECT_DIR$/shop-backstage-provider.iml" />
+    </modules>
+  </component>
+</project>
