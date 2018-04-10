@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:mongo="http://www.springframework.org/schema/data/mongo"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/data/mongo 
+          http://www.springframework.org/schema/data/mongo/spring-mongo-1.7.xsd" >
+    
+    <!--credentials的配置形式是：用户名:密码@默认数据库-->
+    <mongo:mongo-client id="mongoClient" host="127.0.0.1" port="27017">        
+     </mongo:mongo-client>
+    
+    <mongo:db-factory id="mongoDbFactory" dbname="logs" mongo-ref="mongoClient" />
+    
+    <bean id="mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
+        <constructor-arg name="mongoDbFactory" ref="mongoDbFactory" />
+    </bean>    
+</beans>
