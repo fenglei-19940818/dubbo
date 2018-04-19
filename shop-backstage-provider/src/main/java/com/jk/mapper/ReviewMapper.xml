@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jk.dao.ReviewDao" >
+  <resultMap id="BaseResultMap" type="com.jk.model.Review" >
+    <id column="ID" property="id" jdbcType="DECIMAL" />
+    <result column="CREATE_DATE" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="MODIFY_DATE" property="modifyDate" jdbcType="TIMESTAMP" />
+    <result column="CONTENT" property="content" jdbcType="VARCHAR" />
+    <result column="IP" property="ip" jdbcType="VARCHAR" />
+    <result column="IS_SHOW" property="isShow" jdbcType="DECIMAL" />
+    <result column="SCORE" property="score" jdbcType="DECIMAL" />
+    <result column="MEMBER" property="member" jdbcType="DECIMAL" />
+    <result column="PRODUCT" property="product" jdbcType="DECIMAL" />
+    <result column="MEMBERNAME" property="membername" jdbcType="VARCHAR" />
+    <result column="PRODUCTNAME" property="productname" jdbcType="VARCHAR" />
+
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CREATE_DATE, MODIFY_DATE, CONTENT, IP, IS_SHOW, SCORE, MEMBER, PRODUCT
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from XX_REVIEW
+    where ID = #{id}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.math.BigDecimal" >
+    delete from XX_REVIEW
+    where ID = #{id,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.jk.model.Review" >
+    insert into XX_REVIEW (ID, CREATE_DATE, MODIFY_DATE, 
+      CONTENT, IP, IS_SHOW, 
+      SCORE, MEMBER, PRODUCT
+      )
+    values (#{id,jdbcType=DECIMAL}, #{createDate,jdbcType=TIMESTAMP}, #{modifyDate,jdbcType=TIMESTAMP}, 
+      #{content,jdbcType=VARCHAR}, #{ip,jdbcType=VARCHAR}, #{isShow,jdbcType=DECIMAL}, 
+      #{score,jdbcType=DECIMAL}, #{member,jdbcType=DECIMAL}, #{product,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.jk.model.Review" >
+    insert into XX_REVIEW
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="createDate != null" >
+        CREATE_DATE,
+      </if>
+      <if test="modifyDate != null" >
+        MODIFY_DATE,
+      </if>
+      <if test="content != null" >
+        CONTENT,
+      </if>
+      <if test="ip != null" >
+        IP,
+      </if>
+      <if test="isShow != null" >
+        IS_SHOW,
+      </if>
+      <if test="score != null" >
+        SCORE,
+      </if>
+      <if test="member != null" >
+        MEMBER,
+      </if>
+      <if test="product != null" >
+        PRODUCT,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null" >
+        #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=DECIMAL},
+      </if>
+      <if test="score != null" >
+        #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="member != null" >
+        #{member,jdbcType=DECIMAL},
+      </if>
+      <if test="product != null" >
+        #{product,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.jk.model.Review" >
+    update XX_REVIEW
+    <set >
+      <if test="createDate != null" >
+        CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifyDate != null" >
+        MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="content != null" >
+        CONTENT = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="ip != null" >
+        IP = #{ip,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        IS_SHOW = #{isShow,jdbcType=DECIMAL},
+      </if>
+      <if test="score != null" >
+        SCORE = #{score,jdbcType=DECIMAL},
+      </if>
+      <if test="member != null" >
+        MEMBER = #{member,jdbcType=DECIMAL},
+      </if>
+      <if test="product != null" >
+        PRODUCT = #{product,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.jk.model.Review" >
+    update XX_REVIEW
+    set CREATE_DATE = #{createDate,jdbcType=TIMESTAMP},
+      MODIFY_DATE = #{modifyDate,jdbcType=TIMESTAMP},
+      CONTENT = #{content,jdbcType=VARCHAR},
+      IP = #{ip,jdbcType=VARCHAR},
+      IS_SHOW = #{isShow,jdbcType=DECIMAL},
+      SCORE = #{score,jdbcType=DECIMAL},
+      MEMBER = #{member,jdbcType=DECIMAL},
+      PRODUCT = #{product,jdbcType=DECIMAL}
+    where ID = #{id,jdbcType=DECIMAL}
+  </update>
+
+  <select id="queryReviewTotal" resultType="Long">
+    select count(1) from XX_REVIEW where 1=1
+  </select>
+
+  <select id="queryReviewPage" resultMap="BaseResultMap">
+    select t1.name membername,t2.*,t3.name productname from xx_review t2
+    left join xx_member t1 on t1.id=t2.member
+    left join xx_product t3 on t3.id=t2.product order by t1.name desc,t3.name
+  </select>
+
+  <select id="queryReviewById" resultMap="BaseResultMap">
+    select t1.name membername,t2.*,t3.name productname from xx_review t2
+    left join xx_member t1 on t1.id=t2.member
+    left join xx_product t3 on t3.id=t2.product where t2.id=#{id}
+  </select>
+
+  <update id="updateReview">
+    update XX_REVIEW set IS_SHOW=#{isShow} where id = #{id}
+  </update>
+
+
+</mapper>

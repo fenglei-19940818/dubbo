@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jk.dao.MemberAttributeDao">
+
+    <select id="queryMemberAttributeTotal" resultType="Long">
+        select count(1) from XX_MEMBER_ATTRIBUTE where 1=1
+    </select>
+
+    <select id="queryMemberAttributePage" resultType="com.jk.model.MemberAttribute">
+        select * from XX_MEMBER_ATTRIBUTE where 1=1 order by orders
+    </select>
+
+    <select id="queryAttributeID" resultType="Integer">
+        select max(t.property_index) from xx_member_attribute t
+    </select>
+
+    <insert id="addMemberAttribute">
+        insert into XX_MEMBER_ATTRIBUTE values((select max(ID) from XX_MEMBER_ATTRIBUTE)+1,sysdate,sysdate,#{orders},#{is_Enabled},#{is_Required},#{name},#{property_index},#{type})
+    </insert>
+
+    <insert id="addMemberAttribute1">
+        insert into XX_MEMBER_ATTRIBUTE t1 (t1.id,t1.create_date,t1.modify_date,t1.orders,t1.is_enabled,t1.is_required,t1.name,t1.type) values((select max(ID) from XX_MEMBER_ATTRIBUTE)+1,sysdate,sysdate,#{orders},#{is_Enabled},#{is_Required},#{name},#{type})
+    </insert>
+
+    <!--添加可选项-->
+    <insert id="addAttributeOptions">
+        insert into XX_MEMBER_ATTRIBUTE_OPTION values(#{attid},#{option})
+    </insert>
+
+    <select id="queryMemberAttributeByid" resultType="com.jk.model.MemberAttribute">
+        select * from XX_MEMBER_ATTRIBUTE where id=#{id}
+    </select>
+
+    <select id="queryOptionsByProIndex" resultType="com.jk.model.MemberAttributeOption">
+        select * from XX_MEMBER_ATTRIBUTE_OPTION where member_attribute=#{property_index}
+    </select>
+
+    <delete id="deleteAllOptionsByProIndex">
+        delete Xx_Member_Attribute_Option t1 where t1.member_attribute=#{property_index}
+    </delete>
+
+    <update id="updateMemberAttribute">
+        update xx_member_attribute set name=#{name},type=#{type},is_Enabled=#{is_Enabled},is_Required=#{is_Required},orders=#{orders},modify_date=sysdate where id = #{id}
+    </update>
+
+    <delete id="deleteMemberAttribute">
+        delete xx_member_attribute where id in (${ids})
+    </delete>
+
+    <select id="queryMemberAttributeByids" resultType="com.jk.model.MemberAttribute">
+        select t1.property_index from xx_member_attribute t1 where id in (${ids}) and t1.property_index is not null
+    </select>
+
+    <delete id="deleteOptionsByProIndexs">
+        delete xx_member_attribute_option t1 where t1.member_attribute in (${indexs})
+    </delete>
+
+</mapper>

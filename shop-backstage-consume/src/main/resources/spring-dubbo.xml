@@ -16,8 +16,14 @@
 
     <!-- 生成远程服务代理，可以像使用本地bean一样使用demoService -->
 
+    <!--wwt-->
+    <dubbo:reference timeout="12000" id="brandService" interface="com.jk.service.BrandService" />
+
+    <!--fl-->
     <dubbo:reference timeout="12000"  id="userService"   interface="com.jk.service.UserService" />
     <dubbo:reference timeout="12000"  id="memberRankService"   interface="com.jk.service.MemberRankService" />
+    <dubbo:reference timeout="12000"  id="memberAttributeService"   interface="com.jk.service.MemberAttributeService" />
+    <dubbo:reference timeout="12000"  id="reviewService"   interface="com.jk.service.ReviewService" />
     <!--<dubbo:reference timeout="12000"  id="vipService"    interface="com.jk.service.VipService" />-->
     <dubbo:provider id="payload" payload="1665679300"/>
 </beans>

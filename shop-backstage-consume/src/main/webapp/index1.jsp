@@ -18,11 +18,16 @@
 
 </head>
 <body>
-    <input type="button" value="查询" onclick="query()"/>
-    <input type="button" value="添加" onclick="add()"/>
-    <input type="button" value="修改前查询回显" onclick="updateById()"/>
-    <input type="button" value="修改" onclick="update()"/>
-    <input type="button" value="删除或者批量删除" onclick="del()"/>
+    会员等级：<input type="button" value="查询" onclick="query()"/>
+    <br>
+    -----------------
+    <br>
+    会员注册项：<input type="button" value="查询" onclick="queryatt()"/>
+    <br>
+    -----------------
+    <br>
+    评论管理：<input type="button" value="查询" onclick="queryreview()"/>
+    <br>
 
     <!-- 引入JQuery -->
     <script type="text/javascript" src="<%=request.getContextPath()%>/EasyUI/jquery.min.js"></script>
@@ -37,76 +42,21 @@
 
         //查询
         function query() {
-            $.ajax({
-                type:'post',
-                url:'<%=request.getContextPath()%>/memberRank/queryMemberRankListPager.do',
-                success:function(msg){
-                    alert("数据库的数据条数:"+msg.total+"条");
-                }
-            })
+            location.href="<%=request.getContextPath()%>/memberRank/toShowMemberRank.do";
         }
 
-        //添加
-        function add() {
-            $.ajax({
-                type:'post',
-                url:'<%=request.getContextPath()%>/memberRank/addMemberRank.do',
-                data:{"name":"黑金会员","scale":"0.65","amount":"10.00","is_Default":"0","is_Special":"0"},
-                success:function(msg){
+        //-------------------------------
 
-                    if(msg==1){
-                        alert("添加成功");
-                    }else{
-                        alert("添加失败");
-                    }
-                }
-            })
+        function queryatt(){
+            location.href="<%=request.getContextPath()%>/memberAttribute/toShowMemberAttribute.do";
         }
 
-        //修改前查询，根据Id查询
-        function updateById() {
-            $.ajax({
-                type:'post',
-                url:'<%=request.getContextPath()%>/memberRank/queryMemberRankById.do',
-                data:{"id":"2"},
-                success:function(msg){
-                    alert("你要修改的是会员等级名称是:"+msg.name);
-                }
-            })
+        //-------------------------------
+
+        function queryreview(){
+            location.href="<%=request.getContextPath()%>/review/toShowReview.do";
         }
 
-        //修改
-        function update() {
-            $.ajax({
-                type:'post',
-                url:'<%=request.getContextPath()%>/memberRank/updateMemberRank.do',
-                data:{"id":"2","name":"银牌会员2","scale":"9","amount":"290","is_Default":"0","is_Special":"0"},
-                success:function(msg){
-
-                    if(msg==1){
-                        alert("修改成功");
-                    }else{
-                        alert("修改失败");
-                    }
-                }
-            })
-        }
-
-        //删除
-        function del() {
-            $.ajax({
-                type:'post',
-                url:'<%=request.getContextPath()%>/memberRank/deleteMemberRank.do',
-                data:{"ids":"6,7"},
-                success:function(msg){
-                    if(msg>0){
-                        alert("删除成功")
-                    }else{
-                        alert("删除失败")
-                    }
-                }
-            })
-        }
     </script>
 
 </body>

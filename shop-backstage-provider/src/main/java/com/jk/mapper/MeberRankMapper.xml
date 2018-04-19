@@ -7,11 +7,14 @@
     </select>
 
     <select id="queryMemberRankPage" resultType="com.jk.model.MemberRank">
-        select * from XX_MEMBER_RANK where 1=1
+        select * from XX_MEMBER_RANK where 1=1 order by id
     </select>
 
-    <insert id="addMemberRank">
-        insert into XX_MEMBER_RANK values((select max(ID) from XX_MEMBER_RANK)+1,sysdate,sysdate,#{amount},#{is_Default},#{is_Special},#{name},#{scale})
+    <insert id="addMemberRank" parameterType="com.jk.model.MemberRank">
+        <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+            SELECT XX_MEMBER_RANK_SEQUENCE.nextval as id from DUAL
+        </selectKey>
+        insert into XX_MEMBER_RANK values(#{id},sysdate,sysdate,#{amount},#{is_Default},#{is_Special},#{name},#{scale})
     </insert>
 
     <select id="queryMemberRankById" resultType="com.jk.model.MemberRank">

@@ -3,12 +3,14 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/../shop-backstage-consume" />
     <file type="web" url="file://$PROJECT_DIR$" />
+    <file type="web" url="file://$PROJECT_DIR$/../shop-backstage-solr" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/../shop-backstage-consume/pom.xml" />
+        <option value="$PROJECT_DIR$/../shop-backstage-solr/pom.xml" />
       </list>
     </option>
   </component>

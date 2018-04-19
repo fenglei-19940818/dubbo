@@ -8,11 +8,13 @@
         <outputRelativeToContentRoot value="true" />
         <module name="shop-backstage-consume" />
         <module name="shop-backstage-provider" />
+        <module name="shop-backstage-solr" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="shop-backstage-consume" target="1.5" />
       <module name="shop-backstage-provider" target="1.5" />
+      <module name="shop-backstage-solr" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
