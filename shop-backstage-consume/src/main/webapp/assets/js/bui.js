@@ -5452,7 +5452,7 @@ define('bui/component/uibase/autohide',function () {
       });
     },
     /**
-     * \u5904\u7406\u9f20\u6807\u79fb\u51fa\u4e8b\u4ef6\uff0c\u4e0d\u5f71\u54cd{BUI.Component.Controller#handleMouseLeave}\u4e8b\u4ef6
+     * \u5904\u7406\u9f20\u6807\u79fb\u51fa\u4e8b\u4ef6\uff0c\u4e0d\u5f71\u54cd{BUI.Component.controller#handleMouseLeave}\u4e8b\u4ef6
      * @param  {jQuery.Event} ev \u4e8b\u4ef6\u5bf9\u8c61
      */
     handleMoveOuter : function (ev) {
@@ -8087,7 +8087,7 @@ define('bui/component/uibase/list',['bui/component/uibase/selection'],function (
      * });
      * list.render();
      * </code></pre>
-     * see {@link BUI.Component.Controller#property-statusCls}
+     * see {@link BUI.Component.controller#property-statusCls}
      * @type {Object}
      */
     itemStatusCls : {
@@ -8811,7 +8811,7 @@ define('bui/component/uibase/depends',['bui/component/manage'],function (require
      * \u63a7\u4ef6\u7684\u4f9d\u8d56\u4e8b\u4ef6\uff0c\u662f\u4e00\u4e2a\u6570\u7ec4\u96c6\u5408\uff0c\u6bcf\u4e00\u6761\u8bb0\u5f55\u662f\u4e00\u4e2a\u4f9d\u8d56\u5173\u7cfb<br/>
      * \u4e00\u4e2a\u4f9d\u8d56\u662f\u6ce8\u518c\u4e00\u4e2a\u4e8b\u4ef6\uff0c\u6240\u4ee5\u9700\u8981\u5728\u4e00\u4e2a\u4f9d\u8d56\u4e2d\u63d0\u4f9b\uff1a
      * <ol>
-     * <li>\u7ed1\u5b9a\u6e90\uff1a\u4e3a\u4e86\u65b9\u4fbf\u914d\u7f6e\uff0c\u6211\u4eec\u4f7f\u7528 #id\u6765\u6307\u5b9a\u7ed1\u5b9a\u6e90\uff0c\u53ef\u4ee5\u4f7f\u63a7\u4ef6\u7684ID\uff08\u53ea\u652f\u6301\u7ee7\u627f{BUI.Component.Controller}\u7684\u63a7\u4ef6\uff09\uff0c\u4e5f\u53ef\u4ee5\u662fDOM\u7684id</li>
+     * <li>\u7ed1\u5b9a\u6e90\uff1a\u4e3a\u4e86\u65b9\u4fbf\u914d\u7f6e\uff0c\u6211\u4eec\u4f7f\u7528 #id\u6765\u6307\u5b9a\u7ed1\u5b9a\u6e90\uff0c\u53ef\u4ee5\u4f7f\u63a7\u4ef6\u7684ID\uff08\u53ea\u652f\u6301\u7ee7\u627f{BUI.Component.controller}\u7684\u63a7\u4ef6\uff09\uff0c\u4e5f\u53ef\u4ee5\u662fDOM\u7684id</li>
      * <li>\u4e8b\u4ef6\u540d\uff1a\u4e8b\u4ef6\u540d\u662f\u4e00\u4e2a\u4f7f\u7528":"\u4e3a\u524d\u7f00\u7684\u5b57\u7b26\u4e32\uff0c\u4f8b\u5982 "#id:change",\u5373\u76d1\u542cchange\u4e8b\u4ef6</li>
      * <li>\u89e6\u53d1\u7684\u65b9\u6cd5\uff1a\u53ef\u4ee5\u662f\u4e00\u4e2a\u6570\u7ec4\uff0c\u5982["disable","clear"],\u6570\u7ec4\u91cc\u9762\u662f\u63a7\u4ef6\u7684\u65b9\u6cd5\u540d\uff0c\u4e5f\u53ef\u4ee5\u662f\u4e00\u4e2a\u56de\u8c03\u51fd\u6570</li>
      * </ol>
@@ -9428,7 +9428,7 @@ define('bui/component/view',['bui/component/manage','bui/component/uibase'],func
         /**
          * \u63a7\u4ef6\u6839\u8282\u70b9
          * @readOnly
-         * see {@link BUI.Component.Controller#property-el}
+         * see {@link BUI.Component.controller#property-el}
          */
         el: {
             /**
@@ -9441,13 +9441,13 @@ define('bui/component/view',['bui/component/manage','bui/component/uibase'],func
 
         /**
          * \u63a7\u4ef6\u6839\u8282\u70b9\u6837\u5f0f
-         * see {@link BUI.Component.Controller#property-elCls}
+         * see {@link BUI.Component.controller#property-elCls}
          */
         elCls: {
         },
         /**
          * \u63a7\u4ef6\u6839\u8282\u70b9\u6837\u5f0f\u5c5e\u6027
-         * see {@link BUI.Component.Controller#property-elStyle}
+         * see {@link BUI.Component.controller#property-elStyle}
          */
         elStyle: {
         },
@@ -9460,19 +9460,19 @@ define('bui/component/view',['bui/component/manage','bui/component/uibase'],func
         },
         /**
          * \u63a7\u4ef6\u5bbd\u5ea6
-         * see {@link BUI.Component.Controller#property-width}
+         * see {@link BUI.Component.controller#property-width}
          */
         width: {
         },
         /**
          * \u63a7\u4ef6\u9ad8\u5ea6
-         * see {@link BUI.Component.Controller#property-height}
+         * see {@link BUI.Component.controller#property-height}
          */
         height: {
         },
         /**
          * \u72b6\u6001\u76f8\u5173\u7684\u6837\u5f0f,\u9ed8\u8ba4\u60c5\u51b5\u4e0b\u4f1a\u4f7f\u7528 \u524d\u7f00\u540d + xclass + '-' + \u72b6\u6001\u540d
-         * see {@link BUI.Component.Controller#property-statusCls}
+         * see {@link BUI.Component.controller#property-statusCls}
          * @type {Object}
          */
         statusCls : {
@@ -9488,40 +9488,40 @@ define('bui/component/view',['bui/component/manage','bui/component/uibase'],func
         },
         /**
          * \u63a7\u4ef6\u6839\u8282\u70b9\u5c5e\u6027
-         * see {@link BUI.Component.Controller#property-elAttrs}
+         * see {@link BUI.Component.controller#property-elAttrs}
          * @ignore
          */
         elAttrs: {
         },
         /**
          * \u63a7\u4ef6\u5185\u5bb9\uff0chtml,\u6587\u672c\u7b49
-         * see {@link BUI.Component.Controller#property-content}
+         * see {@link BUI.Component.controller#property-content}
          */
         content: {
         },
         /**
          * \u63a7\u4ef6\u63d2\u5165\u5230\u6307\u5b9a\u5143\u7d20\u524d
-         * see {@link BUI.Component.Controller#property-tpl}
+         * see {@link BUI.Component.controller#property-tpl}
          */
         elBefore: {
             // better named to renderBefore, too late !
         },
         /**
          * \u63a7\u4ef6\u5728\u6307\u5b9a\u5143\u7d20\u5185\u90e8\u6e32\u67d3
-         * see {@link BUI.Component.Controller#property-render}
+         * see {@link BUI.Component.controller#property-render}
          * @ignore
          */
         render: {},
         /**
          * \u662f\u5426\u53ef\u89c1
-         * see {@link BUI.Component.Controller#property-visible}
+         * see {@link BUI.Component.controller#property-visible}
          */
         visible: {
             value: true
         },
         /**
          * \u53ef\u89c6\u6a21\u5f0f
-         * see {@link BUI.Component.Controller#property-visibleMode}
+         * see {@link BUI.Component.controller#property-visibleMode}
          */
         visibleMode: {
             value: 'display'
@@ -9546,7 +9546,7 @@ define('bui/component/view',['bui/component/manage','bui/component/uibase'],func
         },
         /**
          * \u6837\u5f0f\u524d\u7f00
-         * see {@link BUI.Component.Controller#property-prefixCls}
+         * see {@link BUI.Component.controller#property-prefixCls}
          */
         prefixCls: {
             value: BUI.prefix
@@ -9554,29 +9554,29 @@ define('bui/component/view',['bui/component/manage','bui/component/uibase'],func
         /**
          * \u53ef\u4ee5\u83b7\u53d6\u7126\u70b9
          * @protected
-         * see {@link BUI.Component.Controller#property-focusable}
+         * see {@link BUI.Component.controller#property-focusable}
          */
         focusable: {
             value: true
         },
         /**
          * \u83b7\u53d6\u7126\u70b9
-         * see {@link BUI.Component.Controller#property-focused}
+         * see {@link BUI.Component.controller#property-focused}
          */
         focused: {},
         /**
          * \u6fc0\u6d3b
-         * see {@link BUI.Component.Controller#property-active}
+         * see {@link BUI.Component.controller#property-active}
          */
         active: {},
         /**
          * \u7981\u7528
-         * see {@link BUI.Component.Controller#property-disabled}
+         * see {@link BUI.Component.controller#property-disabled}
          */
         disabled: {},
         /**
          * \u9ad8\u4eae\u663e\u793a
-         * see {@link BUI.Component.Controller#property-highlighted}
+         * see {@link BUI.Component.controller#property-highlighted}
          */
         highlighted: {}
     };
@@ -9606,7 +9606,7 @@ define('bui/component/loader',['bui/util'],function (require) {
      * </code></pre>
      * ** \u4e00\u822c\u7684\u63a7\u4ef6\u9ed8\u8ba4\u8bfb\u53d6html\uff0c\u4f5c\u4e3a\u63a7\u4ef6\u7684content\u503c **
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json'
@@ -9618,7 +9618,7 @@ define('bui/component/loader',['bui/util'],function (require) {
      *
      * ** \u53ef\u4ee5\u4fee\u6539Loader\u7684\u9ed8\u8ba4\u5c5e\u6027\uff0c\u52a0\u8f7dchildren **
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/children.json',
@@ -9641,7 +9641,7 @@ define('bui/component/loader',['bui/util'],function (require) {
     /**
      * \u52a0\u8f7d\u5185\u5bb9\u7684\u5730\u5740
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json'
@@ -9673,7 +9673,7 @@ define('bui/component/loader',['bui/util'],function (require) {
     /**
      * \u662f\u5426\u81ea\u52a8\u52a0\u8f7d\u6570\u636e
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json',
@@ -9694,7 +9694,7 @@ define('bui/component/loader',['bui/util'],function (require) {
      *   - event : \u89e6\u53d1\u52a0\u8f7d\u7684\u4e8b\u4ef6
      *   - repeat \uff1a\u662f\u5426\u91cd\u590d\u52a0\u8f7d
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json',
@@ -9746,7 +9746,7 @@ define('bui/component/loader',['bui/util'],function (require) {
      *  -  loadMask : true\u65f6\u4f7f\u7528loadMask \u9ed8\u8ba4\u7684\u914d\u7f6e\u4fe1\u606f
      *  -  loadMask : {msg : '\u6b63\u5728\u52a0\u8f7d\uff0c\u8bf7\u7a0d\u540e\u3002\u3002'} LoadMask\u7684\u914d\u7f6e\u4fe1\u606f
      *   <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json',
@@ -9764,7 +9764,7 @@ define('bui/component/loader',['bui/util'],function (require) {
     /**
      * ajax \u8bf7\u6c42\u8fd4\u56de\u6570\u636e\u7684\u7c7b\u578b
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json',
@@ -9794,7 +9794,7 @@ define('bui/component/loader',['bui/util'],function (require) {
     /**
      * \u521d\u59cb\u5316\u7684\u8bf7\u6c42\u53c2\u6570
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json',
@@ -9835,7 +9835,7 @@ define('bui/component/loader',['bui/util'],function (require) {
      *   - data : \u52a0\u8f7d\u7684\u6570\u636e
      *   - params : \u52a0\u8f7d\u7684\u53c2\u6570
      * <pre><code>
-     *   var control = new BUI.Component.Controller({
+     *   var control = new BUI.Component.controller({
      *     render : '#c1',
      *     loader : {
      *       url : 'data/text.json',
@@ -10169,7 +10169,7 @@ define('bui/component/controller',['bui/component/uibase','bui/component/manage'
      * xclass: 'controller'.
      * ** \u521b\u5efa\u5b50\u63a7\u4ef6 ** 
      * <pre><code>
-     * var Control = Controller.extend([mixin1,mixin2],{ //\u539f\u578b\u94fe\u4e0a\u7684\u51fd\u6570
+     * var Control = controller.extend([mixin1,mixin2],{ //\u539f\u578b\u94fe\u4e0a\u7684\u51fd\u6570
      *   renderUI : function(){ //\u521b\u5efaDOM
      *   
      *   }, 
@@ -30432,7 +30432,7 @@ define('bui/grid/column',['bui/common'],function (require) {
                 _self.set('sortState', v);
             },
             /**
-             * {BUI.Component.Controller#performActionInternal}
+             * {BUI.Component.controller#performActionInternal}
              * @ignore
              */
             performActionInternal:function (ev) {

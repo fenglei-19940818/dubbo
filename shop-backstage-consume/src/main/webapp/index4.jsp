@@ -16,7 +16,7 @@
 <body>
 <div class="header">
     <div class="dl-title"><span class="">No.1 Shop++ 后台管理系统</span></div>
-    <div class="dl-log">欢迎您，<span class="dl-log-user">XXX</span>
+    <div class="dl-log">欢迎您，<span class="dl-log-user">${loginName}</span>
         <a href="###" title="退出系统" class="dl-log-quit">[退出]</a>
     </div>
 </div>

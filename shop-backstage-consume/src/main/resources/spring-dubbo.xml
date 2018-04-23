@@ -24,6 +24,7 @@
     <dubbo:reference timeout="12000"  id="memberRankService"   interface="com.jk.service.MemberRankService" />
     <dubbo:reference timeout="12000"  id="memberAttributeService"   interface="com.jk.service.MemberAttributeService" />
     <dubbo:reference timeout="12000"  id="reviewService"   interface="com.jk.service.ReviewService" />
+    <dubbo:reference timeout="12000"  id="loginService"   interface="com.jk.service.LoginService" />
     <!--<dubbo:reference timeout="12000"  id="vipService"    interface="com.jk.service.VipService" />-->
     <dubbo:provider id="payload" payload="1665679300"/>
 </beans>

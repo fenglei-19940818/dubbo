@@ -4,6 +4,7 @@
     <file type="web" url="file://$PROJECT_DIR$/../shop-backstage-consume" />
     <file type="web" url="file://$PROJECT_DIR$" />
     <file type="web" url="file://$PROJECT_DIR$/../shop-backstage-solr" />
+    <file type="web" url="file://$PROJECT_DIR$/../springboot" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">

@@ -45,6 +45,8 @@
     <dubbo:service timeout="12000" interface="com.jk.service.MemberAttributeService" ref="memberAttributeService" />
     <bean id="reviewService"  class="com.jk.service.impl.ReviewServiceImpl"></bean>
     <dubbo:service timeout="12000" interface="com.jk.service.ReviewService" ref="reviewService" />
+    <bean id="loginService"  class="com.jk.service.impl.LoginServiceImpl"></bean>
+    <dubbo:service timeout="12000" interface="com.jk.service.LoginService" ref="loginService" />
     <!--<bean id="vipService"  class="com.jk.service.VipServiceImpl"></bean>-->
     <!--<dubbo:service  timeout="12000"   interface="com.jk.service.VipService" ref="vipService" />-->
     <dubbo:provider id="payload" payload="1665679300"/>

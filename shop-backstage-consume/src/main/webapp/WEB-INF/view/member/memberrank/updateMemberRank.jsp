@@ -69,7 +69,7 @@
                 </th>
                 <td>
                     <input type="submit" class="button" value="确&nbsp;&nbsp;定" onclick="updateMemberRank()" />
-                    <input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='list.jhtml'" />
+                    <input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='<%=request.getContextPath()%>/memberRank/toShowMemberRank.jhtml'" />
                 </td>
             </tr>
         </table>
@@ -78,7 +78,6 @@
     <script type="text/javascript" src="/shopxx/resources/admin/js/jquery.js"></script>
     <script type="text/javascript" src="/shopxx/resources/admin/js/jquery.tools.js"></script>
     <script type="text/javascript" src="/shopxx/resources/admin/js/jquery.validate.js"></script>
-    <script type="text/javascript" src="/shopxx/resources/admin/js/common.js"></script>
     <script type="text/javascript" src="/shopxx/resources/admin/js/input.js"></script>
 
     <script type="text/javascript">
@@ -100,7 +99,7 @@
                 url:"<%=request.getContextPath()%>/memberRank/updateMemberRank.jhtml",
                 type:"post",
                 data:$("#updatememberrank-form").serialize(),//将表单序列化为key value的形式
-                dataType:"text",//json   text
+                dataType:"json",//json   text
                 success:function (msg){
                     if(msg==1){
                         location.href="<%=request.getContextPath()%>/memberRank/toShowMemberRank.jhtml";

@@ -60,7 +60,7 @@
             </th>
             <td>
                 <input type="button" class="button" value="确&nbsp;&nbsp;定" onclick="addMemberRank()" />
-                <input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='list.jhtml'" />
+                <input type="button" class="button" value="返&nbsp;&nbsp;回" onclick="location.href='<%=request.getContextPath()%>/memberRank/toShowMemberRank.jhtml'" />
             </td>
         </tr>
     </table>

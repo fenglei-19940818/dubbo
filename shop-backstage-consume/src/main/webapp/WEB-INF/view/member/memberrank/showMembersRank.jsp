@@ -96,7 +96,7 @@
         //修改
         function updatememberrank(mrid) {
             //跳转修改页面
-            location.href="<%=request.getContextPath()%>/memberRank/queryMemberRankById.jhtml?jhtml="+mrid;
+            location.href="<%=request.getContextPath()%>/memberRank/queryMemberRankById.jhtml?id="+mrid;
         }
         
         //删除

@@ -11,7 +11,6 @@
 <head>
 <base href="<%=basePath%>">
 
-<title>My JSP 'index.jsp' starting page</title>
 <TITLE>登录页面</TITLE>
 
 <SCRIPT src="<%=request.getContextPath() %>/login/js/jquery-1.9.1.min.js" type="text/javascript"></SCRIPT>
@@ -208,54 +207,78 @@ a {
 		</DIV>
 		<form id="login-form" method="post">
 		<P style="padding: 30px 0px 10px; position: relative;">
-			<SPAN class="u_logo"></SPAN> <INPUT class="ipt" name="username" type="text"
-				placeholder="请输入用户名" value="">
+			<SPAN class="u_logo"></SPAN>
+			&nbsp;
+			<INPUT class="ipt" name="name" type="text" placeholder="请输入用户名" value="">
 
 		</P>
 
 		<P style="position: relative;">
-			<SPAN class="p_logo"></SPAN> <INPUT class="ipt" name="userpass" id="password"
-				type="password" placeholder="请输入密码" value="">
+			<SPAN class="p_logo"></SPAN>
+			&nbsp;
+			<INPUT class="ipt" name="pwd" id="password" type="password" placeholder="请输入密码" value="">
 
 		</P>
 		</form>
 
 		<DIV style="height: 50px; line-height: 50px; margin-top: 30px; border-top-color: rgb(231, 231, 231); border-top-width: 1px; border-top-style: solid;">
 			<P style="margin: 0px 35px 20px 45px;">
-				<SPAN style="float: left;"><A style="color: rgb(204, 204, 204);" href="#">忘记密码?</A>
-				</SPAN> <SPAN style="float: right;"><A style="color: rgb(204, 204, 204); margin-right: 10px;" href="#">注册</A>
-
-					<span style="background: rgb(0, 142, 173);cursor:pointer; padding: 7px 10px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;" onclick="submits()">登录</span> </SPAN>
+				<SPAN style="float: left;">
+					<A style="color: rgb(204, 204, 204);" href="#">忘记密码?</A>
+				</SPAN>
+				<SPAN style="float: right;">
+					<%--<A style="color: rgb(204, 204, 204); margin-right: 10px;" href="#">注册</A>--%>
+					<span style="background: rgb(0, 142, 173);cursor:pointer; padding: 7px 10px; border-radius: 4px; border: 1px solid rgb(26, 117, 152); border-image: none; color: rgb(255, 255, 255); font-weight: bold;" onclick="submits()">登录</span>
+				</SPAN>
 			</P>
 		</DIV>
 	</DIV>
 
 	<div style="text-align:center;"></div>
+
+	<script type="text/javascript" src="<%=request.getContextPath()%>/login/js/artDialog-master/dist/dialog-plus.js"></script>
+
 </BODY>
+
 <script>
 	function submits(){
+
+        //判断登录名或密码是否为空
+        var userloginname=$("[name='name']").val();
+        var userloginname=$("[name='pwd']").val();
+        if(userloginname=="" || userloginname==""){
+            var d = dialog({
+                title:"提示信息",
+                content:"用户名或密码不能为空",
+                ok:function (){
+
+                },
+                okValue:"确定"
+            });
+            d.show();
+            return false;
+        }
+
         $.ajax({
             type:'post',
-            url:'<%=request.getContextPath()%>/user/login.do',
+            url:'<%=request.getContextPath()%>/login/userlogin.jhtml',
             data:$("#login-form").serialize(),
             success:function(msg){
                 var str = "";
-                if(msg == 0){
-                    str = "用户名或密码错误";
-                }else if(msg == 1){
-                    str = "登录成功";
-                    location.href="<%=request.getContextPath()%>/user/toIndex.do";
+                if(msg == 0 || msg == 1){
+                    var d = dialog({
+                        title:"提示信息",
+                        content:"用户名或密码不正确",
+                        ok:function (){
+
+                        },
+                        okValue:"确定"
+                    });
+                    d.show();
+                }else if(msg == 2){
+                    location.href="<%=request.getContextPath()%>/index4.jsp";
                 }
-                $.messager.show({
-                    title:'我的消息',
-                    msg:str,
-                    showType:'show',
-                    style:{
-                        right:'',
-                        top:document.body.scrollTop+document.documentElement.scrollTop,
-                        bottom:''
-                    }
-                });
+
 
             }
         })

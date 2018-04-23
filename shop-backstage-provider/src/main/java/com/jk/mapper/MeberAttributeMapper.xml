@@ -15,7 +15,10 @@
     </select>
 
     <insert id="addMemberAttribute">
-        insert into XX_MEMBER_ATTRIBUTE values((select max(ID) from XX_MEMBER_ATTRIBUTE)+1,sysdate,sysdate,#{orders},#{is_Enabled},#{is_Required},#{name},#{property_index},#{type})
+        <selectKey resultType="java.lang.Integer" order="BEFORE" keyProperty="id">
+            SELECT XX_MEMBER_ATTRIBUTE_SEQUENCE.nextval as id from DUAL
+        </selectKey>
+        insert into XX_MEMBER_ATTRIBUTE values(#{id},sysdate,sysdate,#{orders},#{is_Enabled},#{is_Required},#{name},#{property_index},#{type})
     </insert>
 
     <insert id="addMemberAttribute1">
